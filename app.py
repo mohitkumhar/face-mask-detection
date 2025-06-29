@@ -8,7 +8,7 @@ from keras.models import load_model
 model = load_model('model.h5')
 
 # Define class names
-class_names = ['Mask', 'No Mask']
+class_names = ['No Mask', 'Mask']
 
 # Preprocess image
 def preprocess_image(image):
