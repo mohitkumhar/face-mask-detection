@@ -4,6 +4,10 @@
 
 streamlit==1.18.0
 
+# Visualization
+
+altair==5.5.0
+
 # Machine learning framework and dependencies
 
 tensorflow==2.10.0
@@ -19,11 +23,7 @@ Pillow==11.2.1
 numpy==1.23.5
 pandas==2.2.3
 
-# Remove explicit tensorboard/protobuf pins; let tensorflow pull compatible versions
-
-# Remove Windows-only and Jupyter-specific packages
-
-# Additional optional utilities
+# Additional utilities
 
 requests==2.32.3
 scikit-learn==1.6.1
