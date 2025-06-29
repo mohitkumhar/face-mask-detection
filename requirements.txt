@@ -15,7 +15,7 @@ keras==2.10.0
 
 # Computer vision
 
-opencv-python==4.11.0.86
+opencv-python-headless==4.11.0.86
 Pillow==11.2.1
 
 # Numerical and data handling
