@@ -78,7 +78,7 @@ scipy==1.15.3
 six==1.17.0
 smmap==5.0.2
 stack-data==0.6.3
-streamlit==1.45.1
+streamlit==1.18.0
 tenacity==9.1.2
 tensorboard==2.10.1
 tensorboard-data-server==0.6.1
