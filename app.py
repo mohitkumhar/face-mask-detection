@@ -1,5 +1,6 @@
+"""App to detect face masks using a deep learning model."""
+
 import streamlit as st
-import cv2
 import numpy as np
 from PIL import Image
 from keras.models import load_model
