@@ -12,16 +12,34 @@ model = load_model('model.h5')
 class_names = ['No Mask', 'Mask']
 
 # Preprocess image
-def preprocess_image(image):
-    image = image.resize((128, 128))         # Resize to model input size
-    image = image.convert('RGB')             # Ensure RGB format
-    image = np.array(image) / 255.0          # Normalize pixel values
-    image = np.expand_dims(image, axis=0)    # Add batch dimension
-    return image
+def preprocess_image(img):
+    """
+    Preprocess the input image to make it compatible with the model
+
+    Args:
+        img (PIL.Image.Image): The Input Image to preprocess
+    
+    Returns:
+        numy.ndarray: The preprocessed image ready for model input
+    """
+    img = img.resize((128, 128))         # Resize to model input size
+    img = img.convert('RGB')             # Ensure RGB format
+    img = np.array(img) / 255.0          # Normalize pixel values
+    img = np.expand_dims(img, axis=0)    # Add batch dimension
+    return img
 
 # Prediction function
-def predict(image):
-    preprocessed = preprocess_image(image)
+def predict(img):
+    """
+    Return the prediction, if there is mask or not in input image
+
+    Args:
+        img (np.ndarray): The Preprocessed image array for model input
+    
+    Returns:
+        Prediction Made by model
+    """
+    preprocessed = preprocess_image(img)
     result = model.predict(preprocessed)[0]
     prediction = np.argmax(result)
     confidence = result[prediction]
@@ -38,8 +56,8 @@ if option == "Upload Image":
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         st.image(image, caption="Uploaded Image", use_column_width=True)
-        label, confidence = predict(image)
-        st.success(f"Prediction: {label} ({confidence*100:.2f}% confidence)")
+        label, confidence_score = predict(image)
+        st.success(f"Prediction: {label} ({confidence_score*100:.2f}% confidence)")
 
 # Take Photo
 elif option == "Take Photo":
@@ -47,5 +65,5 @@ elif option == "Take Photo":
     if img_file_buffer is not None:
         image = Image.open(img_file_buffer)
         st.image(image, caption="Captured Image", use_column_width=True)
-        label, confidence = predict(image)
-        st.success(f"Prediction: {label} ({confidence*100:.2f}% confidence)")
+        label, confidence_score = predict(image)
+        st.success(f"Prediction: {label} ({confidence_score*100:.2f}% confidence)")
