@@ -84,7 +84,7 @@ face-mask-detection/
 > ✅ Upload an image or click a photo<br>
 > 🎯 Get instant prediction with confidence score<br>
 > 🧠 Powered by a deep learning model trained on real face mask datasets<br>
-<center><img src="https://github.com/user-attachments/assets/f01b68bf-d80f-4301-b9d6-3f1a85fe0def" alt="App Screenshot" width="600"/></center>
+<!-- <center><img src="https://github.com/user-attachments/assets/f01b68bf-d80f-4301-b9d6-3f1a85fe0def" alt="App Screenshot" width="600"/></center> -->
 
 
 
